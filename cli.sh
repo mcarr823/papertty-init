@@ -31,7 +31,8 @@ echo ""
 echo "This script will set up a raspberry pi to automatically run papertty on boot."
 echo "It is intended to be used in a text-only environment. eg. Raspberry Pi OS Lite"
 echo ""
-echo "You can use it with a GUI if you want, but it will not start automatically."
+echo "You can install it from a GUI environment if you want."
+echo "But if you do, your rpi will start booting straight to console from now on."
 echo "If you want a GUI, you should look at using the gui.sh script instead."
 echo ""
 echo "Note that this script should ONLY be run from a raspberry pi."
@@ -121,7 +122,14 @@ fi
 echo ""
 echo ""
 echo ""
-echo "#3 Panel driver"
+echo "#3 Automatic login"
+yes_or_no "Enable automatic login?"
+autologin=$?
+
+echo ""
+echo ""
+echo ""
+echo "#4 Panel driver"
 echo "Which waveshare panel are you going to be using?"
 echo "If you are using a HD panel, then you probably want the IT8951 driver."
 echo "All of the supported models and drivers will be listed in the next step."
@@ -184,6 +192,11 @@ if [ $gpiozero -eq 1 ]; then
     echo "Library: gpiozero"
 else
     echo "Library: RPi.GPIO"
+fi
+if [ $autologin -eq 1 ]; then
+    echo "Automatic login: enabled"
+else
+    echo "Automatic login: disabled"
 fi
 echo "Panel/driver: $panel"
 echo ""
@@ -297,6 +310,14 @@ rm ~/new-crontab.txt
 echo "Enabling SPI"
 sudo raspi-config nonint do_spi 0
 
+#B1 = console boot, requiring login
+#B2 = console boot, autologin
+echo "Updating login preference"
+if [ $autologin -eq 1 ]; then
+    sudo raspi-config nonint do_boot_behaviour B2
+else
+    sudo raspi-config nonint do_boot_behaviour B1
+fi
 
 
 echo ""
