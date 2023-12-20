@@ -320,6 +320,11 @@ else
 fi
 
 
+echo "Disabling splash screen"
+sudo raspi-config nonint do_boot_splash 1
+
+
+
 echo ""
 echo ""
 echo ""
