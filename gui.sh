@@ -250,7 +250,7 @@ echo "Updating apt cache"
 sudo apt update
 
 echo "Installing dependencies"
-sudo apt install -y python3-venv python3-pip libopenjp2-7 $tiffdep libjpeg-dev tmux
+sudo apt install -y python3-venv python3-pip libopenjp2-7 $tiffdep libjpeg-dev libfreetype-dev tmux
 
 echo "Creating python virtual environment - This might take a minute"
 python3 -m venv $installdir
