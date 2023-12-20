@@ -444,6 +444,12 @@ EOF
 echo "Disabling screen locker"
 echo "Hidden=true" | sudo tee -a /etc/xdg/autostart/light-locker.desktop
 
+#Also disable screen blanking so the display doesn't go to sleep
+#This is probably overkill
+echo "Disabling screen blanking"
+sudo raspi-config nonint do_blanking 1
+
+
 echo ""
 echo ""
 echo ""
