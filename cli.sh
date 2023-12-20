@@ -285,6 +285,7 @@ else
     rm ~/old-crontab.txt
     echo "Old crontab was empty - Not backing up"
     echo "" > ~/new-crontab.txt
+fi
 
 echo "Adding new crontab entry to run papertty startup script"
 
