@@ -11,7 +11,7 @@ GUI installer
 Install
 
 ```bash
-bash -c "curl $(https://raw.githubusercontent.com/mcarr823/papertty-init/main/gui.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/mcarr823/papertty-init/main/gui.sh)"
 ```
 
 
@@ -24,5 +24,5 @@ CLI installer
 Install
 
 ```bash
-bash -c "curl $(https://raw.githubusercontent.com/mcarr823/papertty-init/main/cli.sh)"
+bash -c "$(curl https://raw.githubusercontent.com/mcarr823/papertty-init/main/cli.sh)"
 ```
