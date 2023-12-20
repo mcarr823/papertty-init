@@ -294,13 +294,8 @@ crontab ~/new-crontab.txt
 rm ~/new-crontab.txt
 
 
-#Create a backup of the boot config
-echo "Backing up boot config to: /boot/config.txt.bak"
-sudo cp /boot/config.txt /boot/config.txt.bak
-
-#Comment out the existing SPI setting and add a new line to turn it on
 echo "Enabling SPI"
-sudo sed -i 's/^dtparam=spi/dtparam=spi=on\n#dtparam=spi/g' /boot/config.txt
+sudo raspi-config nonint do_spi 0
 
 
 

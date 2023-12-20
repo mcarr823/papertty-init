@@ -360,13 +360,8 @@ sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
 echo "Enabling autologin for XFCE"
 sudo sed -i 's/^autologin-session/autologin-session=xfce\n#autologin-session/g' /etc/lightdm/lightdm.conf
 
-#Create a backup of the boot config
-echo "Backing up boot config to: /boot/config.txt.bak"
-sudo cp /boot/config.txt /boot/config.txt.bak
-
-#Comment out the existing SPI setting and add a new line to turn it on
 echo "Enabling SPI"
-sudo sed -i 's/^dtparam=spi/dtparam=spi=on\n#dtparam=spi/g' /boot/config.txt
+sudo raspi-config nonint do_spi 0
 
 
 #Now let's go into the autostart directory and add some startup programs
