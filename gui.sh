@@ -74,6 +74,7 @@ echo ""
 echo "#1 PaperTTY version"
 if [ $pi5 -eq 1 ]; then
     echo "Skipping this question, as the official repository does not support the raspberry pi 5 yet."
+    read -p "Press Enter to continue"
     usefork=1
 else
     echo "There are two places this script can download PaperTTY from."
@@ -95,9 +96,11 @@ echo ""
 echo "#2 GPIO library"
 if [ $pi5 -eq 1 ]; then
     echo "Skipping this question, as the official repository doesn't support the raspberry pi 5 yet."
+    read -p "Press Enter to continue"
     gpiozero=1
 elif [ $usefork -eq 0 ]; then
     echo "Skipping this question, as the official repository doesn't support gpiozero yet."
+    read -p "Press Enter to continue"
     gpiozero=0
 else
     echo "Which GPIO library do you want to use?"
@@ -149,6 +152,9 @@ echo ""
 echo "#4 Panel driver"
 echo "Which waveshare panel are you going to be using?"
 echo "If you are using a HD panel, then you probably want the IT8951 driver."
+echo "All of the supported models and drivers will be listed in the next step."
+read -p "Press Enter to continue"
+
 echo "Supported panels/drivers are:"
 
 panels=(
@@ -353,9 +359,6 @@ sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
 #Also add a new line to set the login session to xfce
 echo "Enabling autologin for XFCE"
 sudo sed -i 's/^autologin-session/autologin-session=xfce\n#autologin-session/g' /etc/lightdm/lightdm.conf
-
-#sudo groupadd -r autologin
-#sudo gpasswd -a $USER autologin
 
 #Create a backup of the boot config
 echo "Backing up boot config to: /boot/config.txt.bak"
