@@ -217,8 +217,10 @@ echo ""
 echo "Your settings are as follows:"
 if [ $usefork -eq 1 ]; then
     echo "PaperTTY version: forked"
+    gitrepo="mcarr823"
 else
     echo "PaperTTY version: official"
+    gitrepo="joukos"
 fi
 if [ $gpiozero -eq 1 ]; then
     echo "Library: gpiozero"
@@ -283,7 +285,7 @@ fi
 echo "Downloading a newer version of papertty"
 cd $installdir/lib/python*/site-packages/
 rm -rf papertty
-git clone https://github.com/joukos/PaperTTY tmp_papertty
+git clone https://github.com/$gitrepo/PaperTTY tmp_papertty
 mv tmp_papertty/papertty papertty
 rm -rf tmp_papertty
 
