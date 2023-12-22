@@ -72,51 +72,34 @@ echo ""
 echo ""
 echo ""
 echo "#1 PaperTTY version"
-if [ $pi5 -eq 1 ]; then
-    echo "Skipping this question, as the official repository does not support the raspberry pi 5 yet."
-    read -p "Press Enter to continue"
-    usefork=1
-else
-    echo "There are two places this script can download PaperTTY from."
-    echo "The first is the official git repository: https://github.com/joukos/PaperTTY"
-    echo "The second is my fork of PaperTTY: https://github.com/mcarr823/PaperTTY"
-    echo ""
-    echo "All of the changes in my fork have been submitted as pull requests to the official repository."
-    echo "However, not all of them have been merged."
-    echo "At this point in time, the main difference between the two repositories is that my forked version supports the Raspberry Pi 5, and implements an overhauled terminal mode."
-    echo "If you want to use papertty on a rpi5, you will currently need the forked version."
-    echo ""
-    yes_or_no "Use forked version?"
-    usefork=$?
-fi
+echo "There are two places this script can download PaperTTY from."
+echo "The first is the official git repository: https://github.com/joukos/PaperTTY"
+echo "The second is my fork of PaperTTY: https://github.com/mcarr823/PaperTTY"
+echo ""
+echo "The two repositories are usually identical."
+echo "However, new features I've added land in the fork first, then get submitted as pull requests to the official repository."
+echo "So you can think of the forked repository as kind of like a beta version."
+echo ""
+yes_or_no "Use forked repository?"
+usefork=$?
 
 echo ""
 echo ""
 echo ""
 echo "#2 GPIO library"
-if [ $pi5 -eq 1 ]; then
-    echo "Skipping this question, as the official repository doesn't support the raspberry pi 5 yet."
-    read -p "Press Enter to continue"
-    gpiozero=1
-elif [ $usefork -eq 0 ]; then
-    echo "Skipping this question, as the official repository doesn't support gpiozero yet."
-    read -p "Press Enter to continue"
-    gpiozero=0
-else
-    echo "Which GPIO library do you want to use?"
-    echo "There are 2 options: gpiozero and RPi.GPIO"
-    echo ""
-    echo "RPi.GPIO has been used with PaperTTY for longer, and it is well-tested."
-    echo "However, it is no longer updated, and it does not work with the raspberry pi 5 or newer devices."
-    echo ""
-    echo "gpiozero hasn't been used with PaperTTY for as long, or as intensively."
-    echo "But it is regularly updated and it is supported by newer devices."
-    echo ""
-    echo "There should not be any major performance differences between the two."
-    echo ""
-    yes_or_no "Use gpiozero?"
-    gpiozero=$?
-fi
+echo "Which GPIO library do you want to use?"
+echo "There are 2 options: gpiozero and RPi.GPIO"
+echo ""
+echo "RPi.GPIO has been used with PaperTTY for longer, and it is well-tested."
+echo "However, it is no longer updated, and it does not work with the raspberry pi 5 or newer devices."
+echo ""
+echo "gpiozero hasn't been used with PaperTTY for as long, or as intensively."
+echo "But it is regularly updated and it is supported by newer devices."
+echo ""
+echo "There should not be any major performance differences between the two."
+echo ""
+yes_or_no "Use gpiozero?"
+gpiozero=$?
 
 echo ""
 echo ""
