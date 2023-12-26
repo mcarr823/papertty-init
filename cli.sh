@@ -198,12 +198,6 @@ fi
 
 
 
-#Newer versions of Debian require libtiff5-dev instead of libtiff5
-if grep -q 'VERSION="12 (bookworm)"' /etc/os-release; then
-  tiffdep="libtiff5-dev"
-else
-  tiffdep="libtiff5"
-fi
 
 echo ""
 echo ""
@@ -216,7 +210,7 @@ sudo apt update
 
 #git is installed by default in the desktop version, but not in the lite version
 echo "Installing dependencies"
-sudo apt install -y python3-venv python3-pip libopenjp2-7 $tiffdep libjpeg-dev git libfreetype-dev
+sudo apt install -y python3-venv python3-pip libopenjp2-7 libtiff5-dev libjpeg-dev git libfreetype-dev
 
 echo "Creating python virtual environment - This might take a minute"
 python3 -m venv $installdir
