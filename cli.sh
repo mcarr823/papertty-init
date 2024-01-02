@@ -210,7 +210,7 @@ sudo apt update
 
 #git is installed by default in the desktop version, but not in the lite version
 echo "Installing dependencies"
-sudo apt install -y python3-venv python3-pip libopenjp2-7 libtiff5-dev libjpeg-dev git libfreetype-dev
+sudo apt install -y python3-venv python3-pip libopenjp2-7 libtiff5-dev libjpeg-dev git libfreetype-dev wget unzip
 
 echo "Creating python virtual environment - This might take a minute"
 python3 -m venv $installdir
