@@ -223,6 +223,10 @@ if [ $gpiozero -eq 1 ]; then
     $installdir/bin/pip3 install gpiozero
 fi
 
+# For running PaperTTY over USB. eg. Via the IT8951 microUSB port
+echo "Installing pyusb"
+$installdir/bin/pip3 install pyusb
+
 
 #Download a newer version of papertty from git, since the version
 #in pip is probably old.

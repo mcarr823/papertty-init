@@ -89,6 +89,9 @@ $installdir/bin/pip3 install --force-reinstall -q "Pillow==7.1.2" #10.3.0 is lat
 $installdir/bin/pip3 install --force-reinstall -q "spidev==3.4" #3.6 is latest
 $installdir/bin/pip3 install --force-reinstall -q "vncdotool==1.0.0" #1.2.0 is latest
 
+# Needed for running PaperTTY via USB for IT8951 driver boards
+$installdir/bin/pip3 install --force-reinstall -q "pyusb==1.2.1"
+
 # gpiozero enables support for non-RPi devices, and will be needed
 # for the Pi 5 if/when support for that is figured out.
 $installdir/bin/pip3 install --force-reinstall -q "gpiozero==2.0.1"
