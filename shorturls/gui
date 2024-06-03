@@ -1,0 +1,2 @@
+#!/bin/bash
+bash -c "$(curl -s https://raw.githubusercontent.com/mcarr823/papertty-init/main/gui.sh)"
